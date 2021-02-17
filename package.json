@@ -1,0 +1,11 @@
+{
+  "name": "shared-timer",
+  "version": "0.8.0",
+  "description": "Shared timer for meetings",
+  "scripts": {
+    "start": "npm run start --prefix server",
+    "build": "npm run build --prefix client"
+  },
+  "author": "",
+  "license": "MIT"
+}

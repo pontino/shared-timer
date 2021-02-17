@@ -1,0 +1,54 @@
+svg {
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+text {
+  fill: white;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+}
+
+.toolbar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.toolbar > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.toolbar > div:last-child {
+  margin-bottom: 25px;
+}
+
+.toolbar > div * {
+  margin: 5px;
+  font-size: 20px;
+}
+
+.toolbar label {
+  margin: 5px 0;
+}
+
+.toolbar input {
+  width: 60px;
+}

@@ -1,0 +1,70 @@
+<h4 class="error" *ngIf="srv.lastDisconnectReason" style="color:red">
+  Ti sei disconnesso dal server!
+  <br>{{ srv.lastDisconnectReason }}
+</h4>
+
+<ng-container *ngIf="!data; else roleExistsTemplate">
+  <form method="get" action="#" (submit)="$event.preventDefault(); sendPassword()">
+    <label>
+      Password
+      <input type="password" name="passcode" autocomplete="off" [value]="currentPassword"
+             (change)="onPasswordChanged($event)"/>
+    </label>
+    <button type="submit">
+      Send
+    </button>
+  </form>
+</ng-container>
+
+<ng-template #roleExistsTemplate>
+  <div class="title">
+    <h1>Timer di {{  data.room  }}</h1>
+    <button *ngIf="data.level === 'manager'" (click)="logout()">Logout</button>
+    <!--    <button (click)="simulateReconnection()">Simulate reconnection</button>-->
+  </div>
+
+
+  <svg viewBox="0 0 80 20" height="100%">
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">{{ data.seconds | showTimeSpan }}</text>
+  </svg>
+
+  <!--  <svg viewBox="0 0 80 20">-->
+  <!--    <text x="5" y="15">-999:99</text>-->
+  <!--  </svg>-->
+
+  <ng-container *ngIf="data.level === 'manager'">
+    <div class="toolbar">
+      <div>
+        <button *ngIf="data.status === 'running'" (click)="pause()">PAUSA</button>
+        <button *ngIf="data.status === 'pause'" (click)="unpause()">CONTINUA</button>
+      </div>
+      <div>
+        <button (click)="setNextTimer(0, 0)">00:00</button>
+        <button (click)="setNextTimer(1, 0)">01:00</button>
+        <button (click)="setNextTimer(2, 0)">02:00</button>
+        <button (click)="setNextTimer(5, 0)">05:00</button>
+        <button (click)="setNextTimer(10, 0)">10:00</button>
+        <button (click)="setNextTimer(15, 0)">15:00</button>
+        <button (click)="setNextTimer(30, 0)">30:00</button>
+        <button (click)="setNextTimer(60, 0)">60:00</button>
+      </div>
+
+      <div>
+        <div>
+          <label>
+            Prossimo tempo
+            <input type="number" [(ngModel)]="minutes">
+          </label>
+          :
+          <label>
+            <input type="number" [(ngModel)]="seconds">
+          </label>
+        </div>
+        <button (click)="setNewTimer()">IMPOSTA</button>
+      </div>
+    </div>
+  </ng-container>
+
+</ng-template>
+
+
