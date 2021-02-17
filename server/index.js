@@ -6,13 +6,10 @@ const compression = require('compression');
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 
-const adapter = new FileSync('data/db.json');
-
-const db = low(adapter);
-
-db.defaults({ timers: [] }).write();
 
 const _app_folder = __dirname + '/public/';
+const _db_path = __dirname + '/data/db.json';
+
 
 const EMIT_CYCLE = 20;
 const env = process.env.NODE_ENV || 'development';
@@ -20,6 +17,11 @@ const port = process.env.PORT || 3000;
 const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:4200';
 
 let cycle = 0;
+
+const adapter = new FileSync(_db_path);
+const db = low(adapter);
+db.defaults({ timers: [] }).write();
+
 const offlineDb =  db.get('timers').value();
 
 const app = express();
