@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "client:dev": "ng serve --aot",
+    "client:dev": "ng serve",
     "build": "ng build --prod",
     "postbuild": "npm run deploy",
     "predeploy": "rimraf ../server/public && mkdirp ../server/public",
