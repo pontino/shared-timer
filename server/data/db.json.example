@@ -1,0 +1,22 @@
+{
+  "timers": [
+    {
+      "room": "My personal Room",
+      "manager": "secret-pass",
+      "viewer": "room-slug",
+      "status": "pause",
+      "seconds": 0,
+      "latestTargetTime": null,
+      "lastManager": null
+    },
+    {
+      "room": "My second room",
+      "manager": "secret-pass-2",
+      "viewer": "room-slug-2",
+      "status": "pause",
+      "seconds": 0,
+      "latestTargetTime": null,
+      "lastManager": null
+    }
+  ]
+}
