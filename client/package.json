@@ -8,7 +8,7 @@
     "build": "ng build --prod",
     "postbuild": "npm run deploy",
     "predeploy": "rimraf ../server/public && mkdirp ../server/public",
-    "deploy": "copyfiles -f dist/** ../server/public && copyfiles -f dist/assets/* ../server/public/assets",
+    "deploy": "copyfiles -f dist/**/* ../server/public && copyfiles -f dist/**/assets/* ../server/public/assets",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
