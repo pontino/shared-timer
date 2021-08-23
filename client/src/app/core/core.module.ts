@@ -10,7 +10,7 @@ import { getEnvironment } from '../extract-ambient';
   imports: [
     CommonModule,
     SocketIoModule.forRoot({
-      url: getEnvironment().api,
+      url: getEnvironment().apiUrl,
       options: {
         autoConnect: false
       }

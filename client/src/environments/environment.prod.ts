@@ -1,5 +1,6 @@
+/* tslint:disable:no-string-literal */
 export const environment = {
   production: true,
-  api: 'https://adunanza.online', // Change it
-  autodetectBaseUrl: true
+  apiUrl: window['env']?.['apiUrl'] || '',
+  autodetectBaseUrl: window['env']?.['autodetectBaseUrl'] === 'true'
 };
