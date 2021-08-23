@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { SocketIoModule } from 'ngx-socket-io';
 import { TimerService } from './timer.service';
 import { ShowTimeSpanPipe } from './show-time-span.pipe';
-import { environment } from '../../environments/environment';
+import { getEnvironment } from '../extract-ambient';
 
 @NgModule({
   declarations: [ShowTimeSpanPipe],
   imports: [
     CommonModule,
     SocketIoModule.forRoot({
-      url: environment.api,
+      url: getEnvironment().api,
       options: {
         autoConnect: false
       }
