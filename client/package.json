@@ -1,6 +1,6 @@
 {
   "name": "shared-timer-client",
-  "version": "0.1-alpha",
+  "version": "0.1.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

@@ -5,6 +5,5 @@ export const getEnvironment = () => {
   if (ret.autodetectBaseUrl) {
     ret.apiUrl = location.protocol + '//' + location.host;
   }
-  alert(JSON.stringify(ret));
   return ret;
 };
