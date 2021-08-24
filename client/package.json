@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "client:dev": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --no-progress --prod",
     "postbuild": "npm run deploy",
     "predeploy": "rimraf ../server/public && mkdirp ../server/public",
     "deploy": "copyfiles -f dist/**/* ../server/public && copyfiles -f dist/**/assets/* ../server/public/assets && envsub src/assets/env.template.js ../server/public/assets/env.js && rimraf ../server/public/assets/env.template.js",
@@ -30,7 +30,7 @@
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1101.4",
+    "@angular-devkit/build-angular": "^0.1102.14",
     "@angular/cli": "~11.1.4",
     "@angular/compiler-cli": "~11.1.2",
     "@types/jasmine": "~3.6.0",

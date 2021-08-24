@@ -3,10 +3,10 @@
   "version": "0.8.0",
   "description": "Shared timer for meetings",
   "scripts": {
-    "postinstall": "cd server && npm i && cd .. && cd client && npm i && cd ..",
-    "start": "npm run start --prefix server",
+    "postinstall": "(cd server && npm install); (cd client && npm install)",
+    "start": "(cd server && npm run start)",
     "start:dev": "concurrently --kill-others \"npm run client:dev --prefix client\" \"npm run server:dev --prefix server\"",
-    "build": "npm run build --prefix client"
+    "build": "(cd client && npm run build)"
   },
   "author": "",
   "license": "MIT",
