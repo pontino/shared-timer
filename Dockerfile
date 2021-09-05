@@ -2,10 +2,11 @@ FROM mhart/alpine-node:14 as builder
 WORKDIR /tmp
 COPY . .
 
-RUN npm install --no-progress --loglevel=error --unsafe-perm && npm run build \
+RUN cd client \
+    && npm install --no-progress --loglevel=error --unsafe-perm && npm run build && cd .. && cd server \
+	&& npm install --no-progress --production --loglevel=error --production=true --unsafe-perm \
 	&& wget -q -O - https://gobinaries.com/tj/node-prune | sh \
-	&& node-prune . \
-	&& npm install --no-progress --production --loglevel=error --production=true --unsafe-perm
+	&& node-prune .
 
 FROM alpine:3.14
 WORKDIR /app/server
